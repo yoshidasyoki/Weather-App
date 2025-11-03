@@ -1,0 +1,310 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  background-color: #f6f5f4;
+  color: #3e3e3e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  background-color: #f6f5f4;
+  color: #3e3e3e;
+}
+
+.article {
+  display: flex;
+  height: 100vh;
+}
+.article .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100vh;
+  border-right: 1px solid gray;
+}
+.article .sidebar_content {
+  padding: 30px 10px 30px 20px;
+}
+.article .sidebar_content_title {
+  margin-top: 0;
+  font-size: 20px;
+  padding-left: 10px;
+}
+.article .sidebar_content .section_content {
+  margin-top: 30px;
+}
+.article .sidebar_content .section_content .section {
+  margin-bottom: 20px;
+}
+.article .sidebar_content .section_content .section_title {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 16px;
+  padding-left: 25px;
+}
+.article .sidebar_content .section_content .section .item {
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+  border-radius: 5px;
+}
+.article .sidebar_content .section_content .section .item:hover {
+  cursor: pointer;
+}
+.article .sidebar_content .section_content .section .item.checked {
+  background-color: #E0E0E0;
+}
+.article .sidebar_content .section_content .section .item_icon {
+  padding-left: 25px;
+  width: 48px;
+}
+.article .sidebar_content .section_content .section .item_label {
+  margin: 0;
+  padding-left: 12px;
+}
+.article main {
+  width: 100%;
+  height: 100%;
+  margin-left: 20%;
+}
+.article main p {
+  font-size: 12px;
+  margin: 0;
+}
+.article .header {
+  margin-top: 25px;
+  margin-left: 50px;
+}
+.article .header h2 {
+  margin-bottom: 5px;
+}
+.article #graph.hidden {
+  display: none;
+}
+.article #graph .main_content .option {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 2%;
+  padding-right: 25%;
+  margin-top: 15px;
+}
+.article #graph .main_content .graph_content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  position: relative;
+  height: 280px;
+}
+.article #graph .main_content .graph_content canvas {
+  flex: 1 1 45%;
+  max-width: 500px;
+}
+.article #graph .main_content .graph_content canvas.hidden {
+  display: none !important;
+}
+.article #graph .main_content .graph_content.single-column {
+  height: 500px;
+}
+.article #graph .main_content .graph_content.single-column canvas {
+  flex: 1 1 90%;
+  max-width: 90%;
+}
+.article #graph .main_content .toggle_switch {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+.article #graph .main_content .toggle_switch input {
+  display: none;
+}
+.article #graph .main_content .toggle_switch input:checked + label {
+  background-color: #4FC1FF;
+}
+.article #graph .main_content .toggle_switch input:checked + label::before {
+  left: calc(100% - 1em + 0.05em);
+}
+.article #graph .main_content .toggle_switch label {
+  display: block;
+  position: relative;
+  width: 1.8em;
+  height: 1em;
+  border-radius: 1em;
+  background-color: #a0a0a0;
+  cursor: pointer;
+}
+.article #graph .main_content .toggle_switch label::before {
+  position: absolute;
+  top: 0.15em;
+  left: 0.15em;
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: 0.5s;
+  content: "";
+}
+.article #graph .main_content .toggle_switch span {
+  padding-left: 10px;
+}
+.article #search.hidden {
+  display: none;
+}
+.article #search .main_content {
+  padding: 0 100px;
+}
+.article #search .main_content .main_section {
+  display: flex;
+  margin-top: 40px;
+}
+.article #search .main_content .main_section section {
+  flex: 1;
+}
+.article #search .main_content .main_section .sub_title h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.article #search .main_content .main_section .location_map {
+  position: relative;
+}
+.article #search .main_content .main_section .location_map img {
+  width: 320px;
+  text-align: center;
+}
+.article #search .main_content .main_section .location_map .pointer_location input {
+  width: 10px;
+}
+.article #search .main_content .main_section .location_map .pointer_location input:hover {
+  cursor: pointer;
+}
+.article #search .main_content .main_section .location_map .pointer_location span {
+  width: 40px;
+  font-size: 12px;
+}
+.article #search .main_content .main_section .location_map .pointer_location span:hover {
+  cursor: pointer;
+}
+.article #search .main_content .main_section .location_map .pointer_1 {
+  position: absolute;
+  top: 55px;
+  left: 207px;
+}
+.article #search .main_content .main_section .location_map .pointer_1 .label_1 {
+  position: absolute;
+  top: -5px;
+  left: 14px;
+}
+.article #search .main_content .main_section .location_map .pointer_2 {
+  position: absolute;
+  top: 212px;
+  left: 141px;
+}
+.article #search .main_content .main_section .location_map .pointer_2 .label_2 {
+  position: absolute;
+  top: -9px;
+  left: 2px;
+}
+.article #search .main_content .main_section .location_map .pointer_3 {
+  position: absolute;
+  top: 283px;
+  left: 116px;
+  display: flex;
+}
+.article #search .main_content .main_section .location_map .pointer_3 .label_3 {
+  position: absolute;
+  top: 15px;
+  left: -5px;
+}
+.article #search .main_content .main_section .location_map :has(input[type=radio]:checked) {
+  color: red;
+  accent-color: red;
+}
+.article #search .main_content .main_section .selection .select_data {
+  width: 70%;
+}
+.article #search .main_content .main_section .selection .select_data .date {
+  margin-top: 25px;
+}
+.article #search .main_content .main_section .selection .select_data .date .input_date {
+  font-size: 14px;
+  margin-top: 7px;
+}
+.article #search .main_content .main_section .selection .select_data .date input[type=number] {
+  width: 35px;
+}
+.article #search .main_content .main_section .selection .select_data .date input[type=number].year {
+  width: 50px;
+}
+.article #search .main_content .main_section .selection .select_data .date input[type=number] {
+  -moz-appearance: textfield;
+  /* Firefox */
+}
+.article #search .main_content .main_section .selection .select_data .date input[type=number]::-webkit-inner-spin-button,
+.article #search .main_content .main_section .selection .select_data .date input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  /* Chrome, Safari, Edge */
+  margin: 0;
+}
+.article #search .main_content .main_section .selection .select_data .data {
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+.article #search .main_content .main_section .selection .select_data .data label {
+  display: block;
+}
+.article #search .main_content .main_section .selection .select_data .data label:hover {
+  cursor: pointer;
+}
+.article #search .main_content .main_section .selection .select_data .data .checkbox {
+  margin: 2px 0;
+}
+.article #search .main_content .main_section .selection .select_data .data .checkbox:has(input[type=checkbox]:checked) {
+  background-color: #E0E0E0;
+  accent-color: gray;
+}
+.article #search .main_content .main_section .selection .select_data .search_btn {
+  text-align: right;
+}
+.article #search .main_content .main_section .selection .select_data .search_btn #fetch_btn {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.article #search .main_content .main_section .selection .select_data .search_btn button {
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0 8px;
+  border-radius: 5px;
+  width: 70px;
+  height: 32px;
+  background-color: #7cd1ff;
+  border: 1.5px solid #4b9cff;
+  font-weight: bold;
+}
+.article #search .main_content .main_section .selection .select_data .search_btn button:hover {
+  cursor: pointer;
+}
+.article #search .main_content .main_section .selection .select_data .search_btn button:active {
+  background-color: #4FC1FF;
+  border: 1.5px solid #0073FF;
+}
+.article #search .main_content .main_section .selection .select_data .search_btn button img {
+  height: 15px;
+  text-align: center;
+}
+.article #search .main_content .main_section .selection .select_data .search_btn button span {
+  padding-left: 4px;
+}/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,32 @@
+@use 'variables' as *;
+
+@mixin button($width, $height) {
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0 8px;
+  border-radius: 5px;
+  width: $width;
+  height: $height;
+  background-color: $cBtn;
+  border: 1.5px solid $cBtnBorder;
+  font-weight: bold;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: $cBtnClicked;
+    border: 1.5px solid $cBtnClickedBorder;
+  }
+
+  & img {
+    height: 15px;
+    text-align: center;
+  }
+
+  & span {
+    padding-left: 4px;
+  }
+}

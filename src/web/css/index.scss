@@ -1,0 +1,366 @@
+@use 'libs/variables' as *;
+@use 'libs/mixin' as *;
+@use 'libs/style' as *;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: $cBackgroundColor;
+  color: $cFont;
+}
+
+.article {
+  display: flex;
+  height: 100vh;
+
+  // サイドバーのスタイル設定
+  & .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100vh;
+    border-right: 1px solid gray;
+
+    &_content {
+      padding: 30px 10px 30px 20px;
+
+      &_title {
+        margin-top: 0;
+        font-size: 20px;
+        padding-left: 10px;
+      }
+
+      & .section_content {
+        margin-top: 30px;
+
+        & .section {
+          margin-bottom: 20px;
+
+          &_title {
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 16px;
+            padding-left: 25px;
+          }
+
+          & .item {
+            display: flex;
+            align-items: center;
+            padding: 6px 0;
+            border-radius: 5px;
+
+            &:hover {
+              cursor: pointer;
+            }
+
+            &.checked {
+              background-color: $cHover;
+            }
+
+            &_icon {
+              padding-left: 25px;
+              width: 48px;
+            }
+
+            &_label {
+              margin: 0;
+              padding-left: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // メイン画面(サイドバーを除いた領域)のスタイル設定
+  main {
+    width: 100%;
+    height: 100%;
+    margin-left: 20%;
+
+    & p {
+      font-size: 12px;
+      margin: 0;
+    }
+  }
+
+  // ヘッダー部分のスタイル設定
+  & .header {
+    margin-top: 25px;
+    margin-left: 50px;
+
+    & h2 {
+      margin-bottom: 5px;
+    }
+  }
+
+  // グラフ表示画面のスタイル設定
+  #graph {
+    &.hidden {
+      display: none;
+    }
+
+    & .main_content {
+      & .option {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 2%;
+        padding-right: 25%;
+        margin-top: 15px;
+      }
+
+      .graph_content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        position: relative;
+        height: 280px;
+
+        canvas {
+          flex: 1 1 45%;
+          max-width: 500px;
+
+          &.hidden {
+            display: none !important;
+          }
+        }
+
+        &.single-column {
+          height: 500px;
+
+          canvas {
+            flex: 1 1 90%;
+            max-width: 90%;
+          }
+        }
+      }
+
+      .toggle_switch {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        margin-bottom: 25px;
+
+        & input {
+          display: none;
+
+          &:checked+label {
+            background-color: $cToggleBtnON;
+
+            &::before {
+              left: calc(100% - 1em + 0.05em);
+            }
+          }
+        }
+
+        & label {
+          display: block;
+          position: relative;
+          width: 1.8em;
+          height: 1em;
+          border-radius: 1em;
+          background-color: $cToggleBtnOFF;
+          cursor: pointer;
+
+          &::before {
+            position: absolute;
+            top: 0.15em; // 上下の余白を少し増やす
+            left: 0.15em; // 左右の余白も少し増やす
+            width: calc(1em - 0.3em); // 丸を小さく
+            height: calc(1em - 0.3em);
+            border-radius: 50%; // 丸みを保つ（固定でもOK）
+            background-color: #fff;
+            transition: 0.5s;
+            content: "";
+          }
+        }
+
+        & span {
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+
+  //　検索条件画面のスタイル設定
+  #search {
+    &.hidden {
+      display: none;
+    }
+
+    & .main_content {
+      padding: 0 100px;
+
+      & .main_section {
+        display: flex;
+        margin-top: 40px;
+
+        & section {
+          flex: 1;
+        }
+
+        & .sub_title {
+
+          & h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+          }
+        }
+
+        // 地点選択のスタイル
+        & .location_map {
+          position: relative;
+
+          & img {
+            width: 320px;
+            text-align: center;
+          }
+
+          & .pointer {
+            &_location {
+              & input {
+                width: 10px;
+
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+
+              & span {
+                width: 40px;
+                font-size: 12px;
+
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+            }
+
+            &_1 {
+              position: absolute;
+              top: 55px;
+              left: 207px;
+
+              & .label_1 {
+                position: absolute;
+                top: -5px;
+                left: 14px;
+              }
+            }
+
+            &_2 {
+              position: absolute;
+              top: 212px;
+              left: 141px;
+
+              & .label_2 {
+                position: absolute;
+                top: -9px;
+                left: 2px;
+              }
+            }
+
+            &_3 {
+              position: absolute;
+              top: 283px;
+              left: 116px;
+              display: flex;
+
+              & .label_3 {
+                position: absolute;
+                top: 15px;
+                left: -5px;
+              }
+            }
+          }
+
+          :has(input[type="radio"]:checked) {
+            color: red;
+            accent-color: red;
+          }
+        }
+
+        // 検索データ選択のスタイル
+        & .selection {
+          & .select_data {
+            width: 70%;
+
+            & .date {
+              margin-top: 25px;
+
+              & .input_date {
+                font-size: 14px;
+                margin-top: 7px;
+              }
+
+              input[type="number"] {
+                width: 35px;
+
+                &.year {
+                  width: 50px;
+                }
+              }
+
+              // inputで属性をnumberにしたときに表示される矢印アイコンを削除
+              input[type="number"] {
+                -moz-appearance: textfield;
+                /* Firefox */
+              }
+
+              input[type="number"]::-webkit-inner-spin-button,
+              input[type="number"]::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                /* Chrome, Safari, Edge */
+                margin: 0;
+              }
+            }
+
+            & .data {
+              margin-top: 25px;
+              margin-bottom: 10px;
+
+              & label {
+                display: block;
+
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+
+              & .checkbox {
+                margin: 2px 0;
+
+                &:has(input[type="checkbox"]:checked) {
+                  background-color: $cClicked;
+                  accent-color: gray;
+                }
+              }
+            }
+
+            & .search_btn {
+              text-align: right;
+
+              & #fetch_btn {
+                display: inline-block;
+                text-decoration: none;
+                color: inherit;
+                background: none;
+                border: none;
+                padding: 0;
+                margin: 0;
+              }
+
+              & button {
+                @include button(70px, 32px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

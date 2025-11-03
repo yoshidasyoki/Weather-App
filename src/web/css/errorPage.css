@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  background-color: #f6f5f4;
+  color: #3e3e3e;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background-color: #f6f5f4;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+h1 {
+  font-size: 48px;
+  color: #e74c3c;
+}
+
+p {
+  font-size: 18px;
+  margin-top: 16px;
+}
+
+.message {
+  background: #fff3f3;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.toHome {
+  display: block;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #3498db;
+  font-weight: bold;
+}/*# sourceMappingURL=errorPage.css.map */
